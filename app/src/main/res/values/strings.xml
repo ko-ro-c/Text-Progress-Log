@@ -2,4 +2,5 @@
     <string name="app_name">TextProgressLog</string>
     <string name="clear">第１章クリア</string>
     <string name="clearButton">第一章クリア</string>
+    <string name="Back">戻る</string>
 </resources>

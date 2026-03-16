@@ -10,37 +10,65 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Javaの基礎：進捗を管理する「変数」を用意する
-    private int currentProgress = 0; // 現在の進捗率
-    private final int totalChapters = 15; // 教科書の全章数
+    private int currentStep = 0; // 0から32まで
+    private final int totalSteps = 32; // 16章 × 2ステップ
 
-    @SuppressLint("SetTextI18n")
+    private ProgressBar progressBar;
+    private TextView textView;
+    private Button finishButton;
+    private Button backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // パーツをJavaの世界に連れてくる
-        ProgressBar progressBar = findViewById(R.id.progressBar);
-        TextView textView = findViewById(R.id.percentText);
-        Button button = findViewById(R.id.finishButton);
+        progressBar = findViewById(R.id.progressBar);
+        textView = findViewById(R.id.percentText);
+        finishButton = findViewById(R.id.finishButton);
+        backButton = findViewById(R.id.backButton);
 
-        // ボタンを押した時の「動き」を決める
-        button.setOnClickListener(v -> {
-            // 進捗を1増やす
-            currentProgress++;
-
-            // Javaの算術演算でパーセントを計算
-            // (double)で型変換（キャスト）するのがポイント！
-            int percent = (int) (((double) currentProgress / totalChapters) * 100);
-
-            // 見た目に反映させる
-            progressBar.setProgress(percent);
-            textView.setText(percent + "% 完了！");
-
-            if (percent >= 100) {
-                textView.setText("祝！教科書読了！");
+        // 進捗ボタンの動き
+        finishButton.setOnClickListener(v -> {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateUI();
             }
         });
+
+        // 戻るボタンの動き
+        backButton.setOnClickListener(v -> {
+            if (currentStep > 0) {
+                currentStep--;
+                updateUI();
+            }
+        });
+
+        updateUI(); // 起動時にも表示を整える
+    }
+
+    // 表示を更新する命令をまとめた「メソッド」
+    @SuppressLint("SetTextI18n")
+    private void updateUI() {
+        // 1. ％の計算
+        int percent = (int) (((double) currentStep / totalSteps) * 100);
+        progressBar.setProgress(percent);
+        textView.setText(percent + "% 完了！");
+
+        // 2. ボタンの文字を動的に変える
+        int chapter = (currentStep / 2) + 1;
+        if (currentStep >= totalSteps) {
+            finishButton.setText("全行程クリア！");
+            finishButton.setEnabled(false); // 押せなくする
+        } else if (currentStep % 2 == 0) {
+            // 偶数のときは「読破」
+            finishButton.setText("第" + chapter + "章 読破");
+        } else {
+            // 奇数のときは「課題クリア」
+            finishButton.setText("第" + chapter + "章 課題完了");
+        }
+
+        // 3. 0のときは「戻る」を押せなくする
+        backButton.setEnabled(currentStep > 0);
     }
 }
