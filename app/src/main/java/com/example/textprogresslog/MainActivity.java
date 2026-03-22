@@ -12,12 +12,35 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private int currentStep = 0; // 0から32まで
-    private final int totalSteps = 32; // 16章 × 2ステップ
+
+    // Javaの基礎：配列を使って、16個のステップを準備
+    private final String[] macaronSteps = {
+            "材料：粉糖・卵白・アーモンドプードル準備", // Step 0
+            "材料：グラニュー糖・着色料の準備",          // Step 1
+            "メレンゲ：強めパワーで泡立て開始",          // Step 2
+            "メレンゲ：グラニュー糖を3回に分けて投入",    // Step 3
+            "メレンゲ：低速でキメを整える",             // Step 4
+            "メレンゲ：角が立つまで（固すぎるくらい！）", // Step 5
+            "マカロナージュ：粉類を一気に入れる",        // Step 6
+            "マカロナージュ：最初は切るように混ぜる",     // Step 7
+            "マカロナージュ：リボン状になるまで",        // Step 8
+            "絞り：生地が広がり、跡が消えるか確認",      // Step 9
+            "乾燥：表面が触れるようになるまで待機",      // Step 10
+            "乾燥：暖房の有無で速度が変わるので注意",     // Step 11
+            "焼成：180度で3分（ピエが出る！）",         // Step 12
+            "焼成：130度で12分（アルミで色付き防止）",   // Step 13
+            "完成！理想のマカロンの出来上がり！"         // Step 14
+    };
+
+    // 全ステップ数を、配列の数に合わせる
+    private final int totalSteps = 15;
+    //private final int totalSteps = 32; // 16章 × 2ステップ
 
     private ProgressBar progressBar;
     private TextView textView;
     private Button finishButton;
     private Button backButton;
+    private TextView stepDescriptionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.percentText);
         finishButton = findViewById(R.id.finishButton);
         backButton = findViewById(R.id.backButton);
+        stepDescriptionText = findViewById(R.id.stepDescriptionText);
 
         // 2. 次にデータをロードする！
         loadProgress();
@@ -61,22 +85,24 @@ public class MainActivity extends AppCompatActivity {
     // 表示を更新する命令をまとめた「メソッド」
     @SuppressLint("SetTextI18n")
     private void updateUI() {
-        // 1. ％の計算
+        // 1. ％の計算と表示
         int percent = (int) (((double) currentStep / totalSteps) * 100);
         progressBar.setProgress(percent);
         textView.setText(percent + "% 完了！");
 
-        // 2. ボタンの文字を動的に変える
-        int chapter = (currentStep / 2) + 1;
-        if (currentStep >= totalSteps) {
-            finishButton.setText("全行程クリア！");
-            finishButton.setEnabled(false); // 押せなくする
-        } else if (currentStep % 2 == 0) {
-            // 偶数のときは「読破」
-            finishButton.setText("第" + chapter + "章 読破");
+        // 2. 工程テキストとボタンの制御
+        if (currentStep < totalSteps) {
+            // 工程テキストに、配列の文字を表示する
+            stepDescriptionText.setText(macaronSteps[currentStep]);
+
+            // ボタンの文字は「次へ」で固定
+            finishButton.setText("次へ");
+            finishButton.setEnabled(true);
         } else {
-            // 奇数のときは「課題クリア」
-            finishButton.setText("第" + chapter + "章 課題完了");
+            // 全行程終了時
+            stepDescriptionText.setText("理想のマカロンが完成しました！");
+            finishButton.setText("完了");
+            finishButton.setEnabled(false);
         }
 
         // 3. 0のときは「戻る」を押せなくする

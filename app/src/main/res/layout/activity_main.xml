@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="184dp"
         android:text="Hello World!"
         app:layout_constraintBottom_toTopOf="@+id/finishButton"
         app:layout_constraintStart_toStartOf="@+id/finishButton" />
@@ -30,13 +30,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/stepDescriptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="@string/textk"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/finishButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="299dp"
-        android:text="@string/clearButton"
+        android:layout_marginTop="324dp"
+        android:text="@string/text_next"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,8 +60,8 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
         android:text="@string/Back"
         app:layout_constraintStart_toStartOf="@+id/finishButton"
         app:layout_constraintTop_toBottomOf="@+id/finishButton" />
