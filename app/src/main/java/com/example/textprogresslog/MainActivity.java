@@ -1,6 +1,7 @@
 package com.example.textprogresslog;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Button finishButton;
     private Button backButton;
+
     private TextView stepDescriptionText;
 
     @Override
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         finishButton = findViewById(R.id.finishButton);
         backButton = findViewById(R.id.backButton);
         stepDescriptionText = findViewById(R.id.stepDescriptionText);
+        // ボタンを紐付ける
+        Button diaryButton = findViewById(R.id.diaryButton);
 
         // 2. 次にデータをロードする！
         loadProgress();
@@ -77,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 updateUI();
                 saveProgress();
             }
+        });
+
+        // ボタンを押した時の処理
+        diaryButton.setOnClickListener(v -> {
+            // Intent(今の画面, 次の画面のクラス) を作る
+            Intent intent = new Intent(MainActivity.this, DiaryActivity.class);
+            // 画面移動を実行！
+            startActivity(intent);
         });
 
         updateUI(); // 起動時にも表示を整える

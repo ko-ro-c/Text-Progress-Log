@@ -6,4 +6,7 @@
     <string name="textview">にこ</string>
     <string name="textk">ここに工程が表示されます</string>
     <string name="text_next">次へ</string>
+    <string name="button_kiroku">成長記録</string>
+    <string name="text_nikki">ここに日記が表示されます</string>
+    <string name="button_modoru">進捗画面に戻る</string>
 </resources>
