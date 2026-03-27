@@ -77,4 +77,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="HardcodedText" />
 
+    <ImageView
+        android:id="@+id/macaronImageView"
+        android:layout_width="300dp"
+        android:layout_height="250dp"  android:layout_marginBottom="20dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/stepDescriptionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:srcCompat="@drawable/macaron_step0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

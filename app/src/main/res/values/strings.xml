@@ -9,4 +9,5 @@
     <string name="button_kiroku">成長記録</string>
     <string name="text_nikki">ここに日記が表示されます</string>
     <string name="button_modoru">進捗画面に戻る</string>
+    <string name="todo">TODO</string>
 </resources>

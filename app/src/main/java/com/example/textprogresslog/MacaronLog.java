@@ -1,18 +1,18 @@
 package com.example.textprogresslog;
 
 public class MacaronLog {
-    private final String title;      // "#1" など
-    private final String reflection; // 「メレンゲがゆるかった」などの反省点
-    // 後で画像も追加できるように、画像用の変数も準備しておきます
-    // private int imageId; 
+    private final String title;
+    private final String reflection;
+    private final int imageResId; // ★追加：画像のリソースID
 
-    // コンストラクタ（設計図から実体を作る時の決まり）
-    public MacaronLog(String title, String reflection) {
+    // ★修正：コンストラクタ（3つ受け取るように）
+    public MacaronLog(String title, String reflection, int imageResId) {
         this.title = title;
         this.reflection = reflection;
+        this.imageResId = imageResId;
     }
 
-    // データを取り出すためのメソッド（ゲッター）
     public String getTitle() { return title; }
     public String getReflection() { return reflection; }
+    public int getImageResId() { return imageResId; } // ★追加
 }
