@@ -10,4 +10,10 @@
     <string name="text_nikki">ここに日記が表示されます</string>
     <string name="button_modoru">進捗画面に戻る</string>
     <string name="todo">TODO</string>
+    <string name="button_seityou">成長記録</string>
+    <string name="button_back">戻る</string>
+    <string name="button_next">次へ</string>
+    <string name="todo_">TODO</string>
+    <string name="text_percent">〇パーセント完了！</string>
+    <string name="todo_todo">TODO</string>
 </resources>

@@ -31,9 +31,17 @@ public class DiaryActivity extends AppCompatActivity {
         });
 
         ArrayList<MacaronLog> diaryList = new ArrayList<>();
-        diaryList.add(new MacaronLog("#1", "メレンゲ失敗。角が立たなかった。", R.drawable.diary1));
-        diaryList.add(new MacaronLog("#2", "マカロナージュしすぎた。ピエが出なかった。", 0));
-        diaryList.add(new MacaronLog("#3", "成功！焼き色がきれい。", R.drawable.diary3));
+        diaryList.add(new MacaronLog("#1", "中に空洞ができてしまった。バリバリ", R.drawable.diary1));
+        diaryList.add(new MacaronLog("#2", "生地は柔らかくなったけど、空洞あり", R.drawable.diary2));
+        diaryList.add(new MacaronLog("#3", "膨らみよし、少し割れた", R.drawable.diary3));
+        diaryList.add(new MacaronLog("#4", "成功", R.drawable.diary4));
+        diaryList.add(new MacaronLog("#5", "成功", 0));
+        diaryList.add(new MacaronLog("#6", "ココアパウダーは調整が難しい", R.drawable.diary6));
+        diaryList.add(new MacaronLog("#7", "マカロナージュしすぎ、ココアパウダーは減らして正解", R.drawable.diary7));
+        diaryList.add(new MacaronLog("#8", "一番いい感じ", R.drawable.diary8));
+        diaryList.add(new MacaronLog("#9", "成功！焼き色がきれい。", R.drawable.diary9));
+        diaryList.add(new MacaronLog("#10", "成功！", R.drawable.diary10));
+
 
         // ★修正：IDを diaryButton から diaryContainer に変更
         LinearLayout container = findViewById(R.id.diaryContainer);

@@ -7,87 +7,83 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/percentText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="184dp"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toTopOf="@+id/finishButton"
-        app:layout_constraintStart_toStartOf="@+id/finishButton" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:max="100"
-        android:progress="0"
-        android:progressTint="#FFB6C1"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/stepDescriptionText"
-        android:layout_width="match_parent"
+        android:id="@+id/percentText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/text_percent"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <ImageView
+        android:id="@+id/macaronImageView"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/todo_todo"
+        android:scaleType="centerInside"
+
+        app:layout_constraintTop_toBottomOf="@+id/percentText"
+
+        app:layout_constraintBottom_toTopOf="@+id/stepDescriptionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        tools:srcCompat="@drawable/macaron_step0" />
+
+    <TextView
+        android:id="@+id/stepDescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="331dp"
         android:gravity="center"
-        android:text="@string/textk"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/finishButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:text="@string/text_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/button_next"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        app:layout_constraintStart_toStartOf="@+id/backButton" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/Back"
-        app:layout_constraintStart_toStartOf="@+id/finishButton"
-        app:layout_constraintTop_toBottomOf="@+id/finishButton" />
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toTopOf="@+id/diaryButton"
+        app:layout_constraintStart_toStartOf="@+id/diaryButton" />
 
     <Button
         android:id="@+id/diaryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="132dp"
-        android:text="@string/button_kiroku"
+        android:layout_marginBottom="32dp"
+        android:text="@string/button_seityou"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/macaronImageView"
-        android:layout_width="300dp"
-        android:layout_height="250dp"  android:layout_marginBottom="20dp"
-        android:contentDescription="@string/todo"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/stepDescriptionText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:srcCompat="@drawable/macaron_step0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
